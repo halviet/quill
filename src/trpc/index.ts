@@ -20,7 +20,7 @@ export const appRouter = router({
     //   check if the user in the database
     const dbUser = await db.user.findFirst({
       where: {
-        id: user.id
+        id: user.id!
       }
     })
 
@@ -28,7 +28,7 @@ export const appRouter = router({
       // create user in db
       await db.user.create({
         data: {
-          id: user.id,
+          id: user.id!,
           email: user.email
         }
       })
